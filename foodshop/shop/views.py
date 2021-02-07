@@ -1,9 +1,14 @@
 from django.shortcuts import render,redirect
-from .models import Contact,Submit
+from .models import Contact,Submit,recipt
+
 # Create your views here.
 #HomePage
 def index(request):
-    return render(request,"index.html")
+    dish=recipt.objects.all()
+    VAR={
+        "rep":dish
+    }
+    return render(request,"index.html",VAR)
 #AboutPage
 def about(request):
     return render(request,"about.html")
@@ -23,7 +28,11 @@ def contact(request):
     return render(request,"contact.html")
 #RecipPage
 def recip(request):
-    return render(request,"recipe.html")
+    dish=recipt.objects.all()
+    VAR={
+        "rep":dish
+    }
+    return render(request,"recipe.html",VAR)
 #Sub
 def sub_mail(request):
     if request.method=="POST":
