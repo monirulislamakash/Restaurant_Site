@@ -8,4 +8,6 @@ urlpatterns = [
     path("contact",views.contact,name="contact"),
     path("recipe",views.recip,name="recipe"),
     path('Sub_mail',views.sub_mail,name="sub_mail"),
+    path('order',views.order,name="order"),
+    path('login',views.login,name="login"),
 ]

@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
-from .models import Contact,Submit,recipt
-
+from .models import Contact,Submit,recipt,blogPost
+from django.contrib.auth.models import User
+from django.contrib import auth
 # Create your views here.
 #HomePage
 def index(request):
@@ -14,7 +15,11 @@ def about(request):
     return render(request,"about.html")
 #BlogPage
 def blog(request):
-    return render(request,"blog.html")
+    blogpost=blogPost.objects.all()
+    sevar={
+        "blog":blogpost
+    }
+    return render(request,"blog.html",sevar)
 #ContactPage
 def contact(request):
     if request.method=="POST":
@@ -33,10 +38,24 @@ def recip(request):
         "rep":dish
     }
     return render(request,"recipe.html",VAR)
-#Sub
+#Sub_Mail
 def sub_mail(request):
     if request.method=="POST":
         Sub_mail=request.POST.get("sub_mali")
         Sub_mail=Submit(Sub_mail=Sub_mail)
         Sub_mail.save()
     return redirect(index)
+#Order Pages
+def order(request):
+    
+    return render(request,"order.html")
+#login
+def login(request):
+    if request.method=="POST":
+        email=request.POST.get('email')
+        passw=request.POST.get('password')
+        user=auth.authenticate(username=email,password=passw)
+        if user is not None:
+            auth.login(request,user)
+            return render(request,"index.html")
+    return render(request,"login.html")

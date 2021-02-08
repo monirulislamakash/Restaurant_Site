@@ -86,7 +86,7 @@
                                 <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#"><a href="#">987-654-3210</a></li>
                                 <li class="dinone"><img style="margin-right: 15px;" src="{% static ' images/mail_icon.png' %}" alt="#"><a href="#">demo@gmail.com</a></li>
                                 <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#"><a href="#">104 New york , USA</a></li>
-                                <li class="button_user"><a class="button active" href="#">Login</a><a class="button" href="#">Register</a></li>
+                                <li class="button_user"><a class="button active" href="{% url 'login' %}">Login</a><a class="button" href="#">Register</a></li>
                                 <li><img style="margin-right: 15px;" src="{% static 'images/search_icon.png' %}" alt="#"></li>
                                 <li>
                                     <button type="button" id="sidebarCollapse">
@@ -127,38 +127,19 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+    {% for i in blog %}
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mt-3 mar_bottom">
         <div class="blog_box">
           <div class="blog_img_box">
-            <figure><img src="{% static 'images/blog_img1.png' %}" alt="#"/>
-             <span>02 FEB 2019</span>
+            <figure><img src="{{i.image}}" alt="#"/>
+             <span>{{i.date}}</span>
             </figure>
           </div>
-          <h3>Spicy Barger</h3>
-          <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the </p>
+          <h3>{{i.title}}</h3>
+          <p>{{i.post}}</p>
         </div>
       </div>
-       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
-        <div class="blog_box">
-          <div class="blog_img_box">
-            <figure><img src="{% static 'images/blog_img2.png' %}" alt="#"/>
-             <span>02 FEB 2019</span>
-            </figure>
-          </div>
-          <h3>Egg & Tosh</h3>
-          <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the </p>
-        </div>
-      </div>
-       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-        <div class="blog_box">
-          <div class="blog_img_box">
-            <figure><img src="{% static 'images/blog_img3.png' %}" alt="#"/>
-             <span>02 FEB 2019</span>
-            </figure>
-          </div>
-          <h3>Pizza</h3>
-          <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the </p>
-        </div>
+    {% endfor %}
       </div>
     </div>
   </div>

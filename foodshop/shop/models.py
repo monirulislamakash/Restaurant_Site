@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 class Contact(models.Model):
     Name=models.CharField(max_length=50,default="")
@@ -18,3 +18,11 @@ class recipt(models.Model):
     price=models.CharField(max_length=50)
     def __str__(self):
         return self.name
+class blogPost(models.Model):
+    title=models.CharField(max_length=50)
+    post=models.TextField()
+    image=models.ImageField(upload_to="static/blogimage")
+    date=models.DateTimeField(default=datetime.now())
+    def __str__(self):
+        return self.title
+    
