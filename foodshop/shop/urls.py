@@ -10,4 +10,7 @@ urlpatterns = [
     path('Sub_mail',views.sub_mail,name="sub_mail"),
     path('order',views.order,name="order"),
     path('login',views.login,name="login"),
+    path('logout',views.logout,name="logout"),
+    path('singup',views.singup,name="singup"),
+    path('blogpost',views.blogpost,name="blogpost"),
 ]
