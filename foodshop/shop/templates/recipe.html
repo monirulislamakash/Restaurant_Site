@@ -87,7 +87,7 @@
                                 <li class="dinone"><img style="margin-right: 15px;" src="{% static ' images/mail_icon.png' %}" alt="#"><a href="#">demo@gmail.com</a></li>
                                 <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#"><a href="#">104 New york , USA</a></li>
                                 <li class="button_user"><a class="button active" href="{% url 'login' %}">Login</a><a class="button" href="{% url 'singup' %}">Register</a></li>
-                                <li><font size="5"><ion-icon name="cart"></ion-icon></font><span id="contaty">0</span></li>
+                                <li><font size="5"><a href="{% url 'order' %}"><ion-icon name="cart"></ion-icon></font><span id="item">0</span></a></li>
                                 <li>
                                     <button type="button" id="sidebarCollapse">
                                         <img src="{% static 'images/menu_icon.png' %}" alt="#">
@@ -136,7 +136,7 @@
                     <div class="product_blog_cont">
                         <h3>{{i.name}}</h3>
                         <h4><span class="theme_color">$</span>{{i.price}}</h4>
-                        <button id="cartadd" type="button" data-name="{{i.name}}" data-price="{{i.price}}" class="btn btn-warning">Add To Cart</button>
+                        <button data-name="{{i.name}}" data-price="{{i.price}}"data-id="{{i.id}}" id='cart' class="btn btn-warning">Add To Cart</button>
                     </div>
                 </div>
             {% endfor %} 

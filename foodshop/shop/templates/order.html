@@ -96,10 +96,10 @@
                         <div class="right_header_info">
                             <ul>
                                 <li class="dinone">Contact Us : <img style="margin-right: 15px;margin-left: 15px;" src="{% static 'images/phone_icon.png' %}" alt="#"><a href="#">987-654-3210</a></li>
-                                <li class="dinone"><img style="margin-right: 15px;" src="{% static 'images/mail_icon.png' %}" alt="#"><a href="#">demo@gmail.com</a></li>
+                                <li class="dinone"><img style="margin-right: 15px;" src="{% static ' images/mail_icon.png' %}" alt="#"><a href="#">demo@gmail.com</a></li>
                                 <li class="dinone"><img style="margin-right: 15px;height: 21px;position: relative;top: -2px;" src="{% static 'images/location_icon.png' %}" alt="#"><a href="#">104 New york , USA</a></li>
-                                <li class="button_user"><a class="button active" href="{% url 'login' %}">Login</a><a class="button" href="#">Register</a></li>
-                                <li><img style="margin-right: 15px;" src="{% static 'images/search_icon.png' %}" alt="#"></li>
+                                <li class="button_user"><a class="button active" href="{% url 'login' %}">Login</a><a class="button" href="{% url 'singup' %}">Register</a></li>
+                                <li><font size="5"><a href="{% url 'order' %}"><ion-icon name="cart"></ion-icon></font><span id="item">0</span></a></li>
                                 <li>
                                     <button type="button" id="sidebarCollapse">
                                         <img src="{% static 'images/menu_icon.png' %}" alt="#">
@@ -120,23 +120,8 @@
         <h1 align="contact"  class="order_head">Your Order</h1><hr class="strip">
         <form class="main_form" method="POST" action="{% url 'contact' %}">
              {% csrf_token %}
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input name="name" class="form-control" placeholder="Name" type="text">
-                </div>
-                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input name="email" class="form-control" placeholder="Email" type="text">
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <input name="Phone" class="form-control" placeholder="Phone" type="text">
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <textarea name="message" class="textarea" placeholder="Message" type="text" ></textarea>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <span id="item">0</span>
                     <button type="submit" class="send">Order</button>
-                </div>
-            </div>
         </form>
     </div>
 
@@ -197,8 +182,9 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-    
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+     <script src="{% static 'js/cart.js' %}"></script>
    <script type="text/javascript">
         $(document).ready(function() {
             $("#sidebar").mCustomScrollbar({
